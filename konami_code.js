@@ -14,18 +14,17 @@ const codes = [
 function init() {
   // your code here
 
-function konamiListener(e) {
-   const key = e.key
-   console.log(key)
-    if (key === codes[index]) {
-     index++
-   } else {
-     index = 0
-   }
-    if (index === codes.length) {
-     alert("yes")
-   }
-    console.log(index)
- }
- document.body.addEventListener('keydown', konamiListener)
- }
+  var score = 0
+  document.body.addEventListener('keydown', function(e) {
+  if (e.key === codes[score] ) {
+    score = score + 1;
+    if(score === 10){
+      alert('Congrats!');
+    }
+  } else if (e.key === "ArrowUp" ) {
+    score = 1;
+  } else{
+    score = 0;
+  }
+});
+}
